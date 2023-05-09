@@ -1,16 +1,12 @@
 #include <iostream>
 #include <vector>
+#include <algorithm>
 #include <ctime>
 #include <cstdlib>
 
 using namespace std;
 
-void mySwap(int &a, int &b) {
-    int temp = a;
-    a = b;
-    b = temp;
-}
-
+// Quick sort
 struct Element {
     int index;
     int value;
@@ -40,7 +36,7 @@ void quicksort(vector<Element> &arr, int left, int right) {
             j--;
         }
         if (i <= j) {
-            mySwap(arr[i], arr[j]);
+            swap(arr[i], arr[j]);
             i++;
             j--;
         }
