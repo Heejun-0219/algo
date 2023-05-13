@@ -37,7 +37,7 @@ int main() {
     vector<int> A(N);
 
     for (int i = 0; i < N; i++) {
-        A[i] = rand() % 101;
+        A[i] = rand() % 1001;
         cout << A[i] << " ";
     }
     cout << endl << endl;

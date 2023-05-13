@@ -55,7 +55,7 @@ int main() {
     vector<Element> sortedA(N);
 
     for (int i = 0; i < N; i++) {
-        A[i] = rand() % 101;
+        A[i] = rand() % 1001;
         cout << A[i] << " ";
         sortedA[i].index = i;
         sortedA[i].value = A[i];
