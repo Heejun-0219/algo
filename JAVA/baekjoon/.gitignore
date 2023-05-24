@@ -1,3 +1,5 @@
+.idea
+baekjoon.iml
 ### IntelliJ IDEA ###
 out/
 !**/src/main/**/out/
