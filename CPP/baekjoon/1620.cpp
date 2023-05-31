@@ -46,7 +46,7 @@ int main() {
     
     for (int i = 0; i < N; i++) {
         std::cin >> tmp;
-        // if (checkName(tmp))
+        if (checkName(tmp))
             pokemon_dict.insert(std::pair<int, std::string>(i + 1, tmp));
             reverse_Dict.insert(std::pair<std::string, int>(tmp, i + 1));
     }
