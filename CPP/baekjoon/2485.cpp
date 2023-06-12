@@ -8,16 +8,6 @@ int get_gcd(int a, int b)
         return get_gcd(b, a % b);
 }
 
-int get_tree(int len, int divisor){
-    int sum = 0;
-    while (len > divisor)
-    {
-        sum++;
-        len -= divisor;
-    }
-    return sum;
-}
-
 int main(){
     int N;
     std::cin >> N;
@@ -38,7 +28,7 @@ int main(){
 
     int tree = 0;
     for (int i = 0; i < N - 1; i++){
-        tree += get_tree(road_diff[i], Max_divisor);
+        tree += road_diff[i] / Max_divisor - 1;
     }
 
     std::cout << tree;
