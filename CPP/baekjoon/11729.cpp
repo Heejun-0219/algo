@@ -41,36 +41,36 @@ int main(){
     return 0;
 }
 
-#include<iostream>
-#include<vector>
-using namespace std;
+// #include<iostream>
+// #include<vector>
+// using namespace std;
 
-vector<pair<int, int>> moves;
+// vector<pair<int, int>> moves;
 
-void Hanoi(int n, int from, int by, int to) {
-    if (n == 1) {
-        moves.push_back(make_pair(from, to));
-    } else {
-        Hanoi(n - 1, from, to, by);
-        moves.push_back(make_pair(from, to));
-        Hanoi(n - 1, by, from, to);
-    }
-}
+// void Hanoi(int n, int from, int by, int to) {
+//     if (n == 1) {
+//         moves.push_back(make_pair(from, to));
+//     } else {
+//         Hanoi(n - 1, from, to, by);
+//         moves.push_back(make_pair(from, to));
+//         Hanoi(n - 1, by, from, to);
+//     }
+// }
 
-int main() {
-    ios::sync_with_stdio(false);
-    cin.tie(NULL);
-    cout.tie(NULL);
+// int main() {
+//     ios::sync_with_stdio(false);
+//     cin.tie(NULL);
+//     cout.tie(NULL);
 
-    int N;
-    cin >> N;
+//     int N;
+//     cin >> N;
     
-    Hanoi(N, 1, 2, 3);
+//     Hanoi(N, 1, 2, 3);
     
-    cout << moves.size() << "\n";
-    for (int i = 0; i < moves.size(); i++) {
-        cout << moves[i].first << " " << moves[i].second << "\n";
-    }
+//     cout << moves.size() << "\n";
+//     for (int i = 0; i < moves.size(); i++) {
+//         cout << moves[i].first << " " << moves[i].second << "\n";
+//     }
 
-    return 0;
-}
+//     return 0;
+// }
