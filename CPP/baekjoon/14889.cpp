@@ -85,52 +85,52 @@ int main(){
     return 0;
 }
 
-#include <iostream>
-#include <vector>
-#include <cmath>
-#include <algorithm>
+// #include <iostream>
+// #include <vector>
+// #include <cmath>
+// #include <algorithm>
 
-using namespace std;
+// using namespace std;
 
-int main() {
-    int N;
-    cin >> N;
+// int main() {
+//     int N;
+//     cin >> N;
     
-    vector<vector<int>> S(N, vector<int>(N));
-    for (int i = 0; i < N; ++i) {
-        for (int j = 0; j < N; ++j) {
-            cin >> S[i][j];
-        }
-    }
+//     vector<vector<int>> S(N, vector<int>(N));
+//     for (int i = 0; i < N; ++i) {
+//         for (int j = 0; j < N; ++j) {
+//             cin >> S[i][j];
+//         }
+//     }
     
-    int minDiff = 1e9; // 초기 최솟값 설정
+//     int minDiff = 1e9; // 초기 최솟값 설정
     
-    for (int bitmask = 0; bitmask < (1 << N); ++bitmask) {
-        // 비트마스크를 통해 팀 분배 경우의 수를 표현
-        if (__builtin_popcount(bitmask) == N / 2) {
-            // 팀 분배가 조건을 만족하는 경우
-            vector<int> start, link;
-            for (int i = 0; i < N; ++i) {
-                if (bitmask & (1 << i)) {
-                    start.push_back(i);
-                } else {
-                    link.push_back(i);
-                }
-            }
+//     for (int bitmask = 0; bitmask < (1 << N); ++bitmask) {
+//         // 비트마스크를 통해 팀 분배 경우의 수를 표현
+//         if (__builtin_popcount(bitmask) == N / 2) {
+//             // 팀 분배가 조건을 만족하는 경우
+//             vector<int> start, link;
+//             for (int i = 0; i < N; ++i) {
+//                 if (bitmask & (1 << i)) {
+//                     start.push_back(i);
+//                 } else {
+//                     link.push_back(i);
+//                 }
+//             }
             
-            int startSum = 0, linkSum = 0;
-            for (int i = 0; i < N / 2; ++i) {
-                for (int j = i + 1; j < N / 2; ++j) {
-                    startSum += S[start[i]][start[j]] + S[start[j]][start[i]];
-                    linkSum += S[link[i]][link[j]] + S[link[j]][link[i]];
-                }
-            }
+//             int startSum = 0, linkSum = 0;
+//             for (int i = 0; i < N / 2; ++i) {
+//                 for (int j = i + 1; j < N / 2; ++j) {
+//                     startSum += S[start[i]][start[j]] + S[start[j]][start[i]];
+//                     linkSum += S[link[i]][link[j]] + S[link[j]][link[i]];
+//                 }
+//             }
             
-            minDiff = min(minDiff, abs(startSum - linkSum));
-        }
-    }
+//             minDiff = min(minDiff, abs(startSum - linkSum));
+//         }
+//     }
     
-    cout << minDiff << endl;
+//     cout << minDiff << endl;
     
-    return 0;
-}
+//     return 0;
+// }
