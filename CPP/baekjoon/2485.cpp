@@ -1,36 +1,36 @@
 #include <iostream>
+#include <vector>
+#include <algorithm>
 
-int get_gcd(int a, int b)
-{
-    if (b == 0)
-        return a;
-    else
-        return get_gcd(b, a % b);
+using namespace std;
+
+int gcd(int a, int b) {
+    if (b == 0) return a;
+    return gcd(b, a % b);
 }
 
-int main(){
+int main() {
     int N;
-    std::cin >> N;
-    
-    int* road_diff = new int[N - 1];
-    int before, next;
-    std::cin >> before;
-    for (int i = 0; i < N - 1; i++){
-        std::cin >> next;
-        road_diff[i] = next - before;
-        before = next;
+    cin >> N;
+
+    vector<int> positions(N);
+    for (int i = 0; i < N; i++) {
+        cin >> positions[i];
     }
 
-    int Max_divisor = get_gcd(road_diff[0], road_diff[1]);
-    for (int i = 2; i < N - 2; i++){
-        Max_divisor = get_gcd(road_diff[i], Max_divisor);
+    sort(positions.begin(), positions.end());
+
+    int gap = positions[1] - positions[0];
+    for (int i = 2; i < N; i++) {
+        gap = gcd(gap, positions[i] - positions[i - 1]);
     }
 
-    int tree = 0;
-    for (int i = 0; i < N - 1; i++){
-        tree += road_diff[i] / Max_divisor - 1;
+    int min_trees = 0;
+    for (int i = 1; i < N; i++) {
+        min_trees += (positions[i] - positions[i - 1]) / gap - 1;
     }
 
-    std::cout << tree;
+    cout << min_trees << endl;
+
     return 0;
 }
