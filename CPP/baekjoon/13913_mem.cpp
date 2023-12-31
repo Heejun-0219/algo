@@ -4,7 +4,15 @@ using namespace std;
 int subin, brother;
 const int MAX = 100000;
 int visited[MAX + 4];
-long long cnt[MAX + 4];
+vector<int> cnt[MAX + 4];
+// long long cnt[MAX + 4];
+
+void print_vector(vector<int> v) {
+    for (int i : v) {
+        cout << i << " ";
+    }
+    cout << '\n';
+}
 
 int main() {
     ios_base::sync_with_stdio(false);
@@ -13,12 +21,12 @@ int main() {
 
     cin >> subin >> brother;
     if (subin == brother) {
-        cout << "0\n1\n";
+        cout << "0\n" << subin << '\n';
         return 0;
     }
 
     visited[subin] = 1;
-    cnt[subin] = 1;
+    cnt[subin].push_back(subin);
     queue<int> q;
     q.push(subin);
     while (q.size())
@@ -31,16 +39,19 @@ int main() {
                 if (!visited[next]) {
                     q.push(next);
                     visited[next] = visited[now] + 1;
-                    cnt[next] += cnt[now];
+                    cnt[next] = cnt[now];
+                    cnt[next].push_back(next);
                 }
                 else if (visited[next] == visited[now] + 1) {
-                    cnt[next] += cnt[now];
+                    cnt[next] = cnt[now];
+                    cnt[next].push_back(next);
                 }
             }
         }
     }    
 
-    cout << visited[brother] - 1 << '\n' << cnt[brother] << '\n';
+    cout << visited[brother] - 1 << '\n';
+    print_vector(cnt[brother]);
 
     return 0;
 }
