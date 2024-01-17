@@ -21,7 +21,8 @@ void dfs(int y, int x, int cnt) {
 
         if (ny < 0 || nx < 0 || ny >= r || nx >= c || visited[ny][nx]) continue;
         if (a[ny][nx] == 'T') continue;
-        visited[ny][nx] = 1;
+        vi
+        ited[ny][nx] = 1;
         dfs(ny, nx, cnt + 1);
         visited[ny][nx] = 0;
     }
