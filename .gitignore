@@ -14,3 +14,4 @@
 test.*
 CPP/baekjoon/tempCodeRunnerFile.cpp
 **/*.exe
+.DS_Store
